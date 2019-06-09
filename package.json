@@ -1,36 +1,57 @@
 {
-  "name": "do-it",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@types/jest": "24.0.13",
-    "@types/node": "12.0.5",
-    "@types/react": "16.8.19",
-    "@types/react-dom": "16.8.4",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1",
-    "typescript": "3.5.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+    "name": "do-it",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@types/jest": "24.0.13",
+        "@types/node": "12.0.5",
+        "@types/react": "16.8.19",
+        "@types/react-dom": "16.8.4",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6",
+        "react-scripts": "3.0.1",
+        "typescript": "3.5.1"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "precommit": "NODE_ENV=production lint-staged",
+        "lint": "./node_modules/eslint/bin/eslint.js ./src --ext .js,.jsx,.ts,.tsx --fix --config .eslintrc.js"
+    },
+    "lint-staged": {
+        "**/*.+(js|jsx|md|ts|tsx|css|sass|less|graphql|yml|yaml|scss|json)": [
+            "prettier --write",
+            "eslint --fix",
+            "git add"
+        ]
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "@types/react-redux": "^7.0.9",
+        "@typescript-eslint/eslint-plugin": "^1.9.0",
+        "@typescript-eslint/parser": "^1.9.0",
+        "eslint": "^5.16.0",
+        "eslint-config-prettier": "^4.3.0",
+        "eslint-plugin-prettier": "^3.1.0",
+        "eslint-plugin-react": "^7.13.0",
+        "husky": "^2.4.0",
+        "lint-staged": "^8.2.0",
+        "prettier": "^1.18.2"
+    }
 }
